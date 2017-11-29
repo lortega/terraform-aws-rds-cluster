@@ -44,6 +44,10 @@ resource "aws_rds_cluster" "default" {
   preferred_maintenance_window = "${var.maintenance_window}"
   db_subnet_group_name         = "${aws_db_subnet_group.default.name}"
   tags                         = "${module.label.tags}"
+
+  lifecycle {
+    ignore_changes = ["availability_zones"]
+  }
 }
 
 resource "aws_rds_cluster_instance" "default" {
