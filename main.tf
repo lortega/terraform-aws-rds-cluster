@@ -29,7 +29,7 @@ resource "aws_security_group" "default" {
 }
 
 resource "aws_rds_cluster" "default" {
-  cluster_identifier           = "${module.label.namespace}-${module.label.stage}-${module.label.name}-cluster"
+  cluster_identifier           = "${module.label.id}"
   availability_zones           = ["${var.availability_zones}"]
   database_name                = "${var.db_name}"
   master_username              = "${var.admin_user}"
