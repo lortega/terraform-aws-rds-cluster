@@ -46,7 +46,7 @@ resource "aws_rds_cluster" "default" {
   tags                         = "${module.label.tags}"
 
   lifecycle {
-    ignore_changes = ["availability_zones"]
+    ignore_changes = ["availability_zones", "id"]
   }
 }
 
